@@ -69,8 +69,9 @@ class Snake:
         newX = int(head[0]) + modX
         newY = int(head[1]) + modY
         newCoord = f"{newX},{newY}"
+
         # check if lose
-        if mapSizeX < newX or newX < 0 or mapSizeY < newY or newY < 0:
+        if mapSizeX <= newX or newX < 0 or mapSizeY <= newY or newY < 0:
             print("you lose")
             sys.exit(0)
         for coord in self.coords:
@@ -104,8 +105,8 @@ class Snake:
 class SnakeGame:
     def __init__(self):
         self.drawBoard()
-        self.makeNewApple()
         self.snake = Snake()
+        self.makeNewApple()
 
     def makeNewApple(self):
         coordsStr = ""
